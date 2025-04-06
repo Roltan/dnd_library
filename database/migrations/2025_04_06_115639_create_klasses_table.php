@@ -23,6 +23,7 @@ return new class extends Migration
             $table->integer('abilities_count'); // сколько навыков можно взять
             $table->json('equipment'); // массив вариантов доступного снаряжения на старте
             $table->string('money'); // монеты вместо снаряжения
+            $table->integer('sub_klass_lvl'); // уровень получения подкласса
 
             $table->string('abilities_spell')->nullable(); // заклинательная характеристика
 

@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('klass_unit', function (Blueprint $table) {
             $table->id();
             $table->foreignId('klass_id')->constrained('klass')->CascadeOnDelete();
+            $table->foreignId('sub_klass_id')->nullable()->constrained('sub_klass')->CascadeOnDelete();
             $table->string('name');
             $table->integer('lvl');
             $table->integer('value');
