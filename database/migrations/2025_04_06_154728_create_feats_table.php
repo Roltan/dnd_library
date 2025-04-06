@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('manual')->default('https://dnd.su/feats/');
+            $table->string('source')->default("Player's handbook");
 
             $table->json('condition')->nullable(); // необходимое условие
 

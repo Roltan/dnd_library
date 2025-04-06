@@ -13,7 +13,14 @@ return new class extends Migration
     {
         Schema::create('proficiencies', function (Blueprint $table) {
             $table->id();
+            $table->string('type');
             $table->string('name');
+        });
+
+        Schema::create('klass_proficiencies', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('klass_id')->constrained('klasses')->cascadeOnDelete();
+            $table->foreignId('proficiency_id')->constrained('proficiencies')->cascadeOnDelete();
         });
     }
 
@@ -22,6 +29,7 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::dropIfExists('klass_proficiencies');
         Schema::dropIfExists('proficiencies');
     }
 };
