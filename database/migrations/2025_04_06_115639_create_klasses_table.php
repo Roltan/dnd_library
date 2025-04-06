@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('manual')->default('https://dnd.su/class/');
             $table->string('source')->default("Player's handbook");
             $table->integer('dice_hp');
-            $table->json('proficiency'); // массив владений доспехами, оружием, инструментами, языками
             $table->json('save_stat'); // массив владений спас бросками
             $table->json('abilities'); // массив навыков которые можно выбрать при создании
             $table->integer('abilities_count'); // сколько навыков можно взять

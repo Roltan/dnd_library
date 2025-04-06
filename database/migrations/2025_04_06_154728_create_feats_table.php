@@ -11,14 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('klass_unit', function (Blueprint $table) {
+        Schema::create('feats', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('klass_id')->constrained('klass')->CascadeOnDelete();
-            $table->foreignId('sub_klass_id')->nullable()->constrained('sub_klass')->CascadeOnDelete();
             $table->string('name');
-            $table->integer('lvl');
-            $table->integer('value');
-            $table->boolean('is_resources'); // расходный ресурс или лимит
+            $table->string('manual')->default('https://dnd.su/feats/');
+
+            $table->json('condition')->nullable(); // необходимое условие
+
+            $table->string('name_resource')->nullable(); // название расходника
+            $table->integer('value_resource')->nullable(); // максимальный запас расходника
             $table->boolean('reset_short_rest')->default(false); // восстановится ли после короткого отдыха
             $table->boolean('reset_initiative')->default(false); // восстановится ли во время броска инициативы
         });
@@ -29,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('klass_resurces');
+        Schema::dropIfExists('feats');
     }
 };
