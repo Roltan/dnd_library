@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('manual')->default('https://dnd.su/race/');
-            $table->string('source')->default("Player's handbook");
+            $table->string('source')->default("Player`s handbook");
             $table->integer('speed');
             $table->string('size')->default("Средний"); // размер существа
             $table->integer('height'); // средний рост взрослых особей

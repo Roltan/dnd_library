@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('manual')->default('https://dnd.su/class/');
-            $table->string('source')->default("Player's handbook");
+            $table->string('source')->default("Player`s handbook");
             $table->integer('dice_hp');
             $table->json('save_stat'); // массив владений спас бросками
             $table->json('abilities'); // массив навыков которые можно выбрать при создании

@@ -14,7 +14,7 @@ return new class extends Migration {
             $table->id();
             $table->string('name');
             $table->string('manual')->default('https://dnd.su/backgrounds/');
-            $table->string('source')->default("Player's handbook");
+            $table->string('source')->default("Player`s handbook");
             $table->json('equipment'); // массив вариантов доступного снаряжения на старте
         });
 
