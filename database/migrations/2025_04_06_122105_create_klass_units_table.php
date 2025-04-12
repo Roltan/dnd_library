@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('name'); // название
             $table->integer('lvl'); // уровень класса
             $table->integer('value'); // максимальный запас
-            $table->boolean('is_resources'); // расходный ресурс или лимит
+            $table->boolean('is_resources')->default(true); // расходный ресурс или лимит
             $table->boolean('reset_short_rest')->default(false); // восстановится ли после короткого отдыха
             $table->boolean('reset_initiative')->default(false); // восстановится ли во время броска инициативы
         });

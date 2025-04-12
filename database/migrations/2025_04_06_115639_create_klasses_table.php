@@ -25,8 +25,6 @@ return new class extends Migration
             $table->integer('sub_klass_lvl'); // уровень получения подкласса
 
             $table->string('abilities_spell')->nullable(); // заклинательная характеристика
-
-            $table->timestamps();
         });
     }
 
