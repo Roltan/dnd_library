@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
+        // расы
         Schema::create('races', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name'); // название
             $table->string('manual')->default('https://dnd.su/race/');
             $table->string('source')->default("Player`s handbook");
-            $table->integer('speed');
+            $table->integer('speed'); // скорость перемещения
             $table->string('size')->default("Средний"); // размер существа
             $table->integer('height'); // средний рост взрослых особей
             $table->integer('weight'); // средний вес взрослых особей

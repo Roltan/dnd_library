@@ -11,6 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
+        // черты
         Schema::create('feats', function (Blueprint $table) {
             $table->id();
             $table->string('name');

@@ -11,10 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
+        // владения
         Schema::create('proficiencies', function (Blueprint $table) {
             $table->id();
-            $table->string('type');
-            $table->string('name');
+            $table->string('type')->nullable();
+            $table->string('name'); // название
         });
 
         Schema::create('klass_proficiencies', function (Blueprint $table) {

@@ -11,10 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
+        // характеристики и под характеристики
         Schema::create('abilities', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('parent_id')->nullable()->constrained('abilities')->cascadeOnDelete();
-            $table->string('name');
+            $table->string('name'); // название
+            $table->foreignId('parent_id')->nullable()->constrained('abilities')->cascadeOnDelete(); // ссылка на родительскую характеристику
         });
     }
 

@@ -11,13 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
+        // ресурсы класса (ци, ячейки)
         Schema::create('klass_unit', function (Blueprint $table) {
             $table->id();
             $table->foreignId('klass_id')->constrained('klasses')->CascadeOnDelete();
             $table->foreignId('sub_klass_id')->nullable()->constrained('sub_klasses')->CascadeOnDelete();
-            $table->string('name');
-            $table->integer('lvl');
-            $table->integer('value');
+            $table->string('name'); // название
+            $table->integer('lvl'); // уровень класса
+            $table->integer('value'); // максимальный запас
             $table->boolean('is_resources'); // расходный ресурс или лимит
             $table->boolean('reset_short_rest')->default(false); // восстановится ли после короткого отдыха
             $table->boolean('reset_initiative')->default(false); // восстановится ли во время броска инициативы

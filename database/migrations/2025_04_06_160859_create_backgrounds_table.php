@@ -10,6 +10,7 @@ return new class extends Migration {
      */
     public function up(): void
     {
+        // предыстории
         Schema::create('backgrounds', function (Blueprint $table) {
             $table->id();
             $table->string('name');
@@ -18,13 +19,13 @@ return new class extends Migration {
             $table->json('equipment'); // массив вариантов доступного снаряжения на старте
         });
 
-//        связь с владением
+        // связь с владением
         Schema::create('background_proficiencies', function (Blueprint $table) {
             $table->id();
             $table->foreignId('background_id')->constrained('backgrounds')->cascadeOnDelete();
             $table->foreignId('proficiency_id')->constrained('proficiencies')->cascadeOnDelete();
         });
-//        связь с навыками
+        // связь с навыками
         Schema::create('background_abilities', function (Blueprint $table) {
             $table->id();
             $table->foreignId('background_id')->constrained('backgrounds')->cascadeOnDelete();

@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
+        // под класс
         Schema::create('sub_klasses', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->foreignId('klass_id')->constrained('klasses')->cascadeOnDelete();
-
         });
     }
 

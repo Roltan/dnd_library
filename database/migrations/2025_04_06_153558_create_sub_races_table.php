@@ -11,10 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
+        // под расы
         Schema::create('sub_races', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->foreignId('race_id')->constrained('races')->cascadeOnDelete();
+            $table->string('name'); // название
+            $table->foreignId('race_id')->constrained('races')->cascadeOnDelete(); // родительская раса
             $table->json('abilities_bonus')->nullable(); // увеличение характеристик
         });
     }

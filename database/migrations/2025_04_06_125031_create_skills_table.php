@@ -11,14 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
+        // способности / заклинания /
         Schema::create('skills', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('caster_id')->unsigned();
-            $table->string('table');
-            $table->string('name');
-            $table->string('description');
-            $table->integer('lvl');
-            $table->string('script')->nullable();
+            $table->bigInteger('caster_id')->unsigned(); // морф связь
+            $table->string('table'); // морф связь
+            $table->string('name'); // название
+            $table->string('description'); // текстовое описание действия
+            $table->integer('lvl')->default(1); // уровень получения способности
+            $table->string('script')->nullable(); // путь до файла со скриптом выполнения
             $table->boolean('set_price'); // ограничено ли применение способности
         });
     }
