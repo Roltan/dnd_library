@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         // ресурсы класса (ци, ячейки)
-        Schema::create('klass_unit', function (Blueprint $table) {
+        Schema::create('klass_units', function (Blueprint $table) {
             $table->id();
             $table->foreignId('klass_id')->constrained('klasses')->CascadeOnDelete();
             $table->foreignId('sub_klass_id')->nullable()->constrained('sub_klasses')->CascadeOnDelete();
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('klass_resurces');
+        Schema::dropIfExists('klass_units');
     }
 };

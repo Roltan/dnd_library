@@ -5,13 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class SubKlass extends Model
+class KlassUnit extends Model
 {
     use HasFactory;
 
     protected $connection = 'dnd_hero';
 
-    protected $table = 'sub_klasses';
+    protected $table = 'klass_units';
 
     protected $guarded = [];
 
@@ -22,8 +22,8 @@ class SubKlass extends Model
         return $this->belongsTo(Klass::class);
     }
 
-    public function skills(): \Illuminate\Database\Eloquent\Relations\MorphToMany
+    public function subKlass(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
-        return $this->morphToMany(Skill::class, 'caster', 'table', 'caster_id');
+        return $this->belongsTo(SubKlass::class);
     }
 }

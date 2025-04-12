@@ -8,4 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class Skill extends Model
 {
     use HasFactory;
+
+    protected $connection = 'dnd_hero';
+
+    protected $table = 'skills';
+
+    protected $guarded = [];
+
+    public $timestamps = false;
+
+    public function caster(): \Illuminate\Database\Eloquent\Relations\MorphTo
+    {
+        return $this->morphTo(__FUNCTION__, 'table', 'caster_id');
+    }
 }

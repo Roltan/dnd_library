@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('source')->default("Player`s handbook");
             $table->integer('dice_hp');
             $table->json('save_stat'); // массив владений спас бросками
-            $table->json('abilities'); // массив навыков которые можно выбрать при создании
             $table->integer('abilities_count'); // сколько навыков можно взять
             $table->json('equipment'); // массив вариантов доступного снаряжения на старте
             $table->string('money'); // монеты вместо снаряжения
