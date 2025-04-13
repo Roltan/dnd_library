@@ -14,5 +14,6 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(AbilitiesSeeder::class);
         $this->call(ProficienciesSeeder::class);
+        $this->call(EquipmentSeeder::class);
     }
 }
