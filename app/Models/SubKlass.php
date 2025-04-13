@@ -27,6 +27,11 @@ class SubKlass extends Model
         return $this->morphMany(Skill::class, 'caster');
     }
 
+    public function spells(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    {
+        return $this->belongsToMany(Spell::class, 'spell_klass', 'sub_klass_id', 'spell_id');
+    }
+
     public function units(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->HasMany(KlassUnit::class);

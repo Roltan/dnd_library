@@ -20,6 +20,13 @@ return new class extends Migration
             $table->integer('lvl')->default(1); // уровень получения способности
             $table->string('script')->nullable(); // путь до файла со скриптом выполнения
             $table->boolean('set_price'); // ограничено ли применение способности
+
+//            $table->foreign('caster_id', 'fk_skill_klass')->references('id')->on('klasses')->cascadeOnDelete();
+//            $table->foreign('caster_id', 'fk_skill_sub_klass')->references('id')->on('sub_klasses')->cascadeOnDelete();
+//            $table->foreign('caster_id', 'fk_skill_race')->references('id')->on('races')->cascadeOnDelete();
+//            $table->foreign('caster_id', 'fk_skill_sub_race')->references('id')->on('sub_races')->cascadeOnDelete();
+//            $table->foreign('caster_id', 'fk_skill_feat')->references('id')->on('feats')->cascadeOnDelete();
+//            $table->foreign('caster_id', 'fk_skill_background')->references('id')->on('backgrounds')->cascadeOnDelete();
         });
     }
 

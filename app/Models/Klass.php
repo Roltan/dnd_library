@@ -19,8 +19,8 @@ class Klass extends Model
     public $timestamps = false;
 
     protected $casts = [
-        'save_stat'=>'array',
-        'equipment'=>'array',
+        'save_stat' => 'array',
+        'equipment' => 'array',
     ];
 
     public function abilities(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
@@ -46,5 +46,10 @@ class Klass extends Model
     public function skills(): \Illuminate\Database\Eloquent\Relations\MorphMany
     {
         return $this->morphMany(Skill::class, 'caster');
+    }
+
+    public function spells(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    {
+        return $this->belongsToMany(Spell::class, 'spell_klass', 'klass_id', 'spell_id');
     }
 }
