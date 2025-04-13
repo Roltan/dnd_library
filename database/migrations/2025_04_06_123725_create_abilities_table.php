@@ -18,7 +18,7 @@ return new class extends Migration {
         });
 
         // связь характеристики с классом
-        Schema::create('klass_abilities', function (Blueprint $table) {
+        Schema::create('ability_klass', function (Blueprint $table) {
             $table->id();
             $table->foreignId('ability_id')->constrained('abilities')->cascadeOnDelete();
             $table->foreignId('klass_id')->constrained('klasses')->cascadeOnDelete();

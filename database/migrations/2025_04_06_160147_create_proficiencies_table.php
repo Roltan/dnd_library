@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name'); // название
         });
 
-        Schema::create('klass_proficiencies', function (Blueprint $table) {
+        Schema::create('klass_proficiency', function (Blueprint $table) {
             $table->id();
             $table->foreignId('klass_id')->constrained('klasses')->cascadeOnDelete();
             $table->foreignId('proficiency_id')->constrained('proficiencies')->cascadeOnDelete();

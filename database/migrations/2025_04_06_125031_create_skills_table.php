@@ -16,7 +16,7 @@ return new class extends Migration
             $table->id();
             $table->morphs('caster'); // морф связь
             $table->string('name'); // название
-            $table->string('description'); // текстовое описание действия
+            $table->longText('description'); // текстовое описание действия
             $table->integer('lvl')->default(1); // уровень получения способности
             $table->string('script')->nullable(); // путь до файла со скриптом выполнения
             $table->boolean('set_price'); // ограничено ли применение способности
