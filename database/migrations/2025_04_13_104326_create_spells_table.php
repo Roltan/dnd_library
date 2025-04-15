@@ -14,8 +14,8 @@ return new class extends Migration {
             $table->id();
             $table->string('name'); // название
             $table->string('scripts'); // путь до скрипта
-
             $table->longText('description'); // описание
+
             $table->integer('distance')->nullable(); // дистанция
             $table->integer('time_cast')->nullable(); // время накладывания
             $table->integer('duration')->nullable(); // длительность

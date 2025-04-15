@@ -11,7 +11,7 @@ class Spell extends Model
 
     protected $connection = 'dnd_hero';
 
-    protected $table = 'skills';
+    protected $table = 'spells';
 
     protected $guarded = [];
 
