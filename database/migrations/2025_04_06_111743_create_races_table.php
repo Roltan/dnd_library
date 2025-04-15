@@ -20,8 +20,8 @@ return new class extends Migration
             $table->integer('speed'); // скорость перемещения
             $table->string('size')->default("Средний"); // размер существа
             $table->integer('height'); // средний рост взрослых особей
-            $table->integer('weight'); // средний вес взрослых особей
-            $table->json('lang'); // массив доступных языков
+            $table->integer('weight')->nullable(); // средний вес взрослых особей
+            $table->json('lang')->nullable(); // массив доступных языков
             $table->json('ideology'); // массив доступных идеологий
             $table->json('abilities_bonus')->nullable(); // увеличение характеристик
         });

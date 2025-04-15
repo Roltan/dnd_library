@@ -20,13 +20,13 @@ return new class extends Migration {
         });
 
         // связь с владением
-        Schema::create('background_proficiencies', function (Blueprint $table) {
+        Schema::create('background_proficiency', function (Blueprint $table) {
             $table->id();
             $table->foreignId('background_id')->constrained('backgrounds')->cascadeOnDelete();
             $table->foreignId('proficiency_id')->constrained('proficiencies')->cascadeOnDelete();
         });
         // связь с навыками
-        Schema::create('background_abilities', function (Blueprint $table) {
+        Schema::create('ability_background', function (Blueprint $table) {
             $table->id();
             $table->foreignId('background_id')->constrained('backgrounds')->cascadeOnDelete();
             $table->foreignId('ability_id')->constrained('abilities')->cascadeOnDelete();
