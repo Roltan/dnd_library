@@ -22,160 +22,7 @@ class BarbarianKlassSeeder extends Seeder
             'dice_hp' => 12,
             'save_stat' => [3, 7], // Ловкость (id=3) и Харизма (id=20)
             'abilities_count' => 2,
-            'equipment' => [
-                [
-                    "items" => [
-                        [
-                            "type" => "Ручные топоры",
-                            "count" => 2
-                        ],
-                        [
-                            "type" => "Боевой посох",
-                            "count" => 1
-                        ],
-                        [
-                            "type" => "Булава",
-                            "count" => 1
-                        ],
-                        [
-                            "type" => "Дубинка",
-                            "count" => 1
-                        ],
-                        [
-                            "type" => "Кинжал",
-                            "count" => 1
-                        ],
-                        [
-                            "type" => "Копье",
-                            "count" => 1
-                        ],
-                        [
-                            "type" => "Лёгкий молот",
-                            "count" => 1
-                        ],
-                        [
-                            "type" => "Метательное копьё",
-                            "count" => 1
-                        ],
-                        [
-                            "type" => "Палица",
-                            "count" => 1
-                        ],
-                        [
-                            "type" => "Ручной топор",
-                            "count" => 1
-                        ],
-                        [
-                            "type" => "Серп",
-                            "count" => 1
-                        ],
-                        [
-                            "type" => "Лёгкий арбалет",
-                            "count" => 1
-                        ],
-                        [
-                            "type" => "Короткий лук",
-                            "count" => 1
-                        ],
-                        [
-                            "type" => "Праща",
-                            "count" => 1
-                        ]
-                    ]
-                ],
-                [
-                    "items" => [
-                        [
-                            'type' => 'Алебарда',
-                            "count" => 1
-                        ],
-                        [
-                            'type' => 'Секира',
-                            "count" => 1
-                        ],
-                        [
-                            'type' => 'Боевая кирка',
-                            "count" => 1
-                        ],
-                        [
-                            'type' => 'Боевой молот',
-                            "count" => 1
-                        ],
-                        [
-                            'type' => 'Боевой топор',
-                            "count" => 1
-                        ],
-                        [
-                            'type' => 'Глефа',
-                            "count" => 1
-                        ],
-                        [
-                            'type' => 'Двуручный меч',
-                            "count" => 1
-                        ],
-                        [
-                            'type' => 'Длинное копьё',
-                            "count" => 1
-                        ],
-                        [
-                            'type' => 'Длинный меч',
-                            "count" => 1
-                        ],
-                        [
-                            'type' => 'Кнут',
-                            "count" => 1
-                        ],
-                        [
-                            'type' => 'Короткий меч',
-                            "count" => 1
-                        ],
-                        [
-                            'type' => 'Молот',
-                            "count" => 1
-                        ],
-                        [
-                            'type' => 'Моргенштерн',
-                            "count" => 1
-                        ],
-                        [
-                            'type' => 'Пика',
-                            "count" => 1
-                        ],
-                        [
-                            'type' => 'Рапира',
-                            "count" => 1
-                        ],
-                        [
-                            'type' => 'Секира',
-                            "count" => 1
-                        ],
-                        [
-                            'type' => 'Скимитар',
-                            "count" => 1
-                        ],
-                        [
-                            'type' => 'Трезубец',
-                            "count" => 1
-                        ],
-                    ]
-                ],
-                [
-                    "items" => [
-                        [
-                            "type" => "Набор путешественника",
-                            "count" => 1
-                        ]
-                    ]
-                ],
-                [
-                    "items" => [
-                        [
-                            "type" => "Метательное копьё",
-                            "count" => 4
-                        ]
-                    ]
-                ]
-            ],
+            'equipment' => "( Секира или # Воинское_оружие ) и ( 2 Ручной_топор или # Простое_оружие ) и Набор_путешественника и 4 Метательное_копьё",
             'money' => '2d4*10',
             'sub_klass_lvl' => 3,
             'abilities_spell' => null
@@ -601,6 +448,7 @@ class BarbarianKlassSeeder extends Seeder
             ]
         ]);
     }
+
     protected function subKlass8(): void
     {
         $subKlass = SubKlass::create([
@@ -635,6 +483,7 @@ class BarbarianKlassSeeder extends Seeder
             ]
         ]);
     }
+
     protected function subKlass9(): void
     {
         $subKlass = SubKlass::create([
