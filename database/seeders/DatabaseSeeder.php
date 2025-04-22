@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Database\Seeders\Klass\BarbarianKlassSeeder;
 use Database\Seeders\Klass\BardKlassSeeder;
 use Illuminate\Database\Seeder;
 
@@ -19,5 +20,6 @@ class DatabaseSeeder extends Seeder
 
         // классы
         $this->call(BardKlassSeeder::class);
+        $this->call(BarbarianKlassSeeder::class);
     }
 }

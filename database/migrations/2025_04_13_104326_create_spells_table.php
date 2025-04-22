@@ -13,7 +13,7 @@ return new class extends Migration {
         Schema::create('spells', function (Blueprint $table) {
             $table->id();
             $table->string('name'); // название
-            $table->string('scripts'); // путь до скрипта
+            $table->string('scripts')->nullable(); // путь до скрипта
             $table->longText('description'); // описание
 
             $table->integer('distance')->nullable(); // дистанция
@@ -33,8 +33,8 @@ return new class extends Migration {
         Schema::create('spell_klass', function (Blueprint $table) {
             $table->id();
             $table->foreignId('spell_id')->constrained('spells')->cascadeOnDelete();
-            $table->foreignId('klass_id')->constrained('klasses')->cascadeOnDelete();
-            $table->foreignId('sub_klass_id')->constrained('sub_klasses')->cascadeOnDelete();
+            $table->foreignId('klass_id')->nullable()->constrained('klasses')->cascadeOnDelete();
+            $table->foreignId('sub_klass_id')->nullable()->constrained('sub_klasses')->cascadeOnDelete();
         });
     }
 

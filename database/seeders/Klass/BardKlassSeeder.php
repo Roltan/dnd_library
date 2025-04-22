@@ -11,6 +11,8 @@ use Illuminate\Database\Seeder;
 
 class BardKlassSeeder extends Seeder
 {
+    private $bard;
+
     public function run()
     {
         // 1. Создаем основной класс
@@ -135,6 +137,7 @@ class BardKlassSeeder extends Seeder
             'sub_klass_lvl' => 3,
             'abilities_spell' => 20
         ]);
+        $this->bard = $bard;
 
         // 2. Привязываем навыки (abilities)
         $bardAbilities = Ability::all()->pluck('id')->toArray();
@@ -150,7 +153,6 @@ class BardKlassSeeder extends Seeder
             'Ручные арбалеты',
             'Музыкальные инструменты'
         ])->pluck('id');
-
         $bard->proficiencies()->sync($proficiencies);
 
         // 4. Параметры уровня
@@ -163,8 +165,7 @@ class BardKlassSeeder extends Seeder
             stat: [
                 'name' => 'Известные заговоры',
                 'is_resources' => false
-            ],
-            klass: $bard
+            ]
         );
         $this->createUnits(
             values: [
@@ -190,8 +191,8 @@ class BardKlassSeeder extends Seeder
             stat: [
                 'name' => 'Известные заклинания',
                 'is_resources' => false
-            ],
-            klass: $bard);
+            ]
+        );
         $this->createUnits(
             values: [
                 1 => 2,
@@ -203,8 +204,7 @@ class BardKlassSeeder extends Seeder
                 'is_resources' => true,
                 'reset_short_rest' => false,
                 'reset_initiative' => false
-            ],
-            klass: $bard
+            ]
         );
         $this->createUnits(
             values: [
@@ -217,8 +217,7 @@ class BardKlassSeeder extends Seeder
                 'is_resources' => true,
                 'reset_short_rest' => false,
                 'reset_initiative' => false
-            ],
-            klass: $bard
+            ]
         );
         $this->createUnits(
             values: [
@@ -231,8 +230,7 @@ class BardKlassSeeder extends Seeder
                 'is_resources' => true,
                 'reset_short_rest' => false,
                 'reset_initiative' => false
-            ],
-            klass: $bard
+            ]
         );
         $this->createUnits(
             values: [
@@ -246,8 +244,7 @@ class BardKlassSeeder extends Seeder
                 'is_resources' => true,
                 'reset_short_rest' => false,
                 'reset_initiative' => false
-            ],
-            klass: $bard
+            ]
         );
         $this->createUnits(
             values: [
@@ -261,8 +258,7 @@ class BardKlassSeeder extends Seeder
                 'is_resources' => true,
                 'reset_short_rest' => false,
                 'reset_initiative' => false
-            ],
-            klass: $bard
+            ]
         );
         $this->createUnits(
             values: [
@@ -275,8 +271,7 @@ class BardKlassSeeder extends Seeder
                 'is_resources' => true,
                 'reset_short_rest' => false,
                 'reset_initiative' => false
-            ],
-            klass: $bard
+            ]
         );
         $this->createUnits(
             values: [
@@ -289,8 +284,7 @@ class BardKlassSeeder extends Seeder
                 'is_resources' => true,
                 'reset_short_rest' => false,
                 'reset_initiative' => false
-            ],
-            klass: $bard
+            ]
         );
         $this->createUnits(
             values: [
@@ -302,8 +296,7 @@ class BardKlassSeeder extends Seeder
                 'is_resources' => true,
                 'reset_short_rest' => false,
                 'reset_initiative' => false
-            ],
-            klass: $bard
+            ]
         );
         $this->createUnits(
             values: [
@@ -315,8 +308,7 @@ class BardKlassSeeder extends Seeder
                 'is_resources' => true,
                 'reset_short_rest' => false,
                 'reset_initiative' => false
-            ],
-            klass: $bard
+            ]
         );
 
         // 5. Умения класса
@@ -394,17 +386,17 @@ class BardKlassSeeder extends Seeder
         ]);
 
         // 6. Добавляем подкласс
-        $this->college1($bard);
-        $this->college2($bard);
-        $this->college3($bard);
-        $this->college4($bard);
-        $this->college5($bard);
-        $this->college6($bard);
-        $this->college7($bard);
-        $this->college8($bard);
+        $this->subKlass1();
+        $this->subKlass2();
+        $this->subKlass3();
+        $this->subKlass4();
+        $this->subKlass5();
+        $this->subKlass6();
+        $this->subKlass7();
+        $this->subKlass8();
     }
 
-    protected function createUnits(array $values, array $stat, Klass $klass): void
+    protected function createUnits(array $values, array $stat): void
     {
         $transaction = [];
         foreach ($values as $key => $value) {
@@ -413,14 +405,14 @@ class BardKlassSeeder extends Seeder
             $data['value'] = $value;
             $transaction[] = $data;
         }
-        $klass->units()->createMany($transaction);
+        $this->bard->units()->createMany($transaction);
     }
 
-    protected function college1(Klass $bard): void
+    protected function subKlass1(): void
     {
         $subKlass = SubKlass::create([
             'name' => 'Коллегия доблести',
-            'klass_id' => $bard->id
+            'klass_id' => $this->bard->id
         ]);
 
         $subKlass->skills()->createMany([
@@ -450,11 +442,12 @@ class BardKlassSeeder extends Seeder
             ]
         ]);
     }
-    protected function college2(Klass $bard): void
+
+    protected function subKlass2(): void
     {
         $subKlass = SubKlass::create([
             'name' => 'Коллегия знаний',
-            'klass_id' => $bard->id
+            'klass_id' => $this->bard->id
         ]);
 
         $subKlass->skills()->createMany([
@@ -484,11 +477,12 @@ class BardKlassSeeder extends Seeder
             ]
         ]);
     }
-    protected function college3(Klass $bard): void
+
+    protected function subKlass3(): void
     {
         $subKlass = SubKlass::create([
             'name' => 'Коллегия мечей',
-            'klass_id' => $bard->id
+            'klass_id' => $this->bard->id
         ]);
 
         $subKlass->skills()->createMany([
@@ -524,11 +518,12 @@ class BardKlassSeeder extends Seeder
             ]
         ]);
     }
-    protected function college4(Klass $bard): void
+
+    protected function subKlass4(): void
     {
         $subKlass = SubKlass::create([
             'name' => 'Коллегия очарования',
-            'klass_id' => $bard->id
+            'klass_id' => $this->bard->id
         ]);
 
         $subKlass->skills()->createMany([
@@ -558,11 +553,12 @@ class BardKlassSeeder extends Seeder
             ]
         ]);
     }
-    protected function college5(Klass $bard): void
+
+    protected function subKlass5(): void
     {
         $subKlass = SubKlass::create([
             'name' => 'Коллегия шёпотов',
-            'klass_id' => $bard->id
+            'klass_id' => $this->bard->id
         ]);
 
         $subKlass->skills()->createMany([
@@ -592,11 +588,12 @@ class BardKlassSeeder extends Seeder
             ]
         ]);
     }
-    protected function college6(Klass $bard): void
+
+    protected function subKlass6(): void
     {
         $subKlass = SubKlass::create([
             'name' => 'Коллегия красноречия',
-            'klass_id' => $bard->id
+            'klass_id' => $this->bard->id
         ]);
 
         $subKlass->skills()->createMany([
@@ -632,11 +629,12 @@ class BardKlassSeeder extends Seeder
             ]
         ]);
     }
-    protected function college7(Klass $bard): void
+
+    protected function subKlass7(): void
     {
         $subKlass = SubKlass::create([
             'name' => 'Коллегия созидания',
-            'klass_id' => $bard->id
+            'klass_id' => $this->bard->id
         ]);
 
         $subKlass->skills()->createMany([
@@ -666,11 +664,12 @@ class BardKlassSeeder extends Seeder
             ]
         ]);
     }
-    protected function college8(Klass $bard): void
+
+    protected function subKlass8(): void
     {
         $subKlass = SubKlass::create([
             'name' => 'Коллегия духов',
-            'klass_id' => $bard->id
+            'klass_id' => $this->bard->id
         ]);
 
         $subKlass->skills()->createMany([
