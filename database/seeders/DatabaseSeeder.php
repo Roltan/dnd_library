@@ -2,9 +2,9 @@
 
 namespace Database\Seeders;
 
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Database\Seeders\Klass\BarbarianKlassSeeder;
 use Database\Seeders\Klass\BardKlassSeeder;
+use Database\Seeders\Race\DwarfRaceSeeder;
 use Database\Seeders\Race\GnomeRaceSeeder;
 use Illuminate\Database\Seeder;
 
@@ -25,5 +25,6 @@ class DatabaseSeeder extends Seeder
 
         // расы
         $this->call(GnomeRaceSeeder::class);
+        $this->call(DwarfRaceSeeder::class);
     }
 }
