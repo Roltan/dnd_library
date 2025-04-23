@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use Database\Seeders\Feats\ActorFeatsSeeder;
 use Database\Seeders\Klass\BarbarianKlassSeeder;
 use Database\Seeders\Klass\BardKlassSeeder;
 use Database\Seeders\Race\DwarfRaceSeeder;
@@ -26,5 +27,8 @@ class DatabaseSeeder extends Seeder
         // расы
         $this->call(GnomeRaceSeeder::class);
         $this->call(DwarfRaceSeeder::class);
+
+        // черты
+        $this->call(ActorFeatsSeeder::class);
     }
 }
