@@ -19,6 +19,7 @@ class SubRace extends Model
 
     protected $casts = [
         'abilities_bonus' => 'array',
+        'lang' => 'array',
     ];
 
     public function race(): \Illuminate\Database\Eloquent\Relations\BelongsTo

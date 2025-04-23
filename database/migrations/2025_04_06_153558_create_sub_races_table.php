@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('name'); // название
             $table->foreignId('race_id')->constrained('races')->cascadeOnDelete(); // родительская раса
             $table->json('abilities_bonus')->nullable(); // увеличение характеристик
+            $table->json('lang')->nullable(); // дополнительные языки
         });
     }
 
