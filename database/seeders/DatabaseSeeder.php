@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Database\Seeders\Feats\ActorFeatsSeeder;
+use Database\Seeders\Feats\DuelistFeatsSeeder;
 use Database\Seeders\Klass\BarbarianKlassSeeder;
 use Database\Seeders\Klass\BardKlassSeeder;
 use Database\Seeders\Race\DwarfRaceSeeder;
@@ -30,5 +31,6 @@ class DatabaseSeeder extends Seeder
 
         // черты
         $this->call(ActorFeatsSeeder::class);
+        $this->call(DuelistFeatsSeeder::class);
     }
 }
