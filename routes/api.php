@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\KlassController;
+use App\Http\Controllers\RaceController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +16,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::prefix('/klass')->group(function () {
+    Route::get('/list', [KlassController::class, 'getList']);
+
+    Route::prefix('/sub')->group(function () {
+        Route::get('/list/{klass}', [KlassController::class, 'getSubKlass']);
+    });
+});
+
+Route::prefix('/race')->group(function () {
+    Route::get('/list', [RaceController::class, 'getList']);
 });
