@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\KlassController;
 use App\Http\Controllers\RaceController;
+use App\Http\Controllers\SkillController;
+use App\Http\Controllers\SpellController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -30,4 +32,11 @@ Route::prefix('/race')->group(function () {
     Route::get('/list', [RaceController::class, 'getList']);
     Route::get('/static/info/{race}', [RaceController::class, 'getStaticInfo']);
     Route::get('/choice/info/{race}', [RaceController::class, 'getChoiceInfo']);
+});
+
+Route::prefix('/skill')->group(function () {
+    Route::post('/info', [SkillController::class, 'getInfo']);
+});
+Route::prefix('/spell')->group(function () {
+    Route::post('/info', [SpellController::class, 'getInfo']);
 });

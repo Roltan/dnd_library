@@ -57,7 +57,7 @@ class StaticInfoResource extends JsonResource
         return $object->skills()
             ->where('lvl', '<=', $this->lvl)
             ->get()
-            ->pluck('name')
+            ->pluck('id')
             ->toArray();
     }
 
