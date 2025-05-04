@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\Klass\ChoiceInfoResource;
+use App\Http\Resources\Klass\StaticInfoResource;
 use App\Models\Klass;
 use App\Models\SubKlass;
+use App\Repositories\KlassRepository;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class KlassController extends Controller
 {
@@ -20,16 +24,28 @@ class KlassController extends Controller
 
     public function getSubKlass($klass): Response
     {
-        $klass = Klass::query()
-            ->where('name', $klass)
-            ->first();
-        if ($klass === null)
-            return response(['status' => false, 'message' => 'klass not found'], 404);
+        $klass = KlassRepository::getKlass($klass);
 
         $subKlass = $klass->subKlass()
             ->get()
             ->pluck('name');
 
         return response(['status' => true, 'subKlasses' => $subKlass]);
+    }
+
+    public function getStaticInfo($klass): Response
+    {
+        $klass = KlassRepository::getKlass($klass);
+        $info = new StaticInfoResource($klass);
+
+        return response(['status' => true, 'info' => $info]);
+    }
+
+    public function getChoiceInfo($klass): Response
+    {
+        $klass = KlassRepository::getKlass($klass);
+        $info = new ChoiceInfoResource($klass);
+
+        return response(['status' => true, 'info' => $info]);
     }
 }

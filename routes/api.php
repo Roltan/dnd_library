@@ -18,6 +18,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('/klass')->group(function () {
     Route::get('/list', [KlassController::class, 'getList']);
+    Route::get('/static/info/{klass}', [KlassController::class, 'getStaticInfo']);
+    Route::get('/choice/info/{klass}', [KlassController::class, 'getChoiceInfo']);
 
     Route::prefix('/sub')->group(function () {
         Route::get('/list/{klass}', [KlassController::class, 'getSubKlass']);
