@@ -36,16 +36,16 @@ class KlassController extends Controller
     public function getStaticInfo($klass): Response
     {
         $klass = KlassRepository::getKlass($klass);
-        $info = new StaticInfoResource($klass);
+        $klass = new StaticInfoResource($klass);
 
-        return response(['status' => true, 'info' => $info]);
+        return response(['status' => true, 'info' => $klass]);
     }
 
     public function getChoiceInfo($klass): Response
     {
         $klass = KlassRepository::getKlass($klass);
-        $info = new ChoiceInfoResource($klass);
+        $klass = new ChoiceInfoResource($klass);
 
-        return response(['status' => true, 'info' => $info]);
+        return response(['status' => true, 'info' => $klass]);
     }
 }

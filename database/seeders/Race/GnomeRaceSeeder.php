@@ -117,12 +117,6 @@ class GnomeRaceSeeder extends Seeder
             'lang' => ['Подземный язык'],
             'abilities_bonus' => [
                 [
-                    "bonus" => "2",
-                    "abilities" => [
-                        "Интеллект"
-                    ]
-                ],
-                [
                     "bonus" => "1",
                     "abilities" => [
                         "Ловкость"

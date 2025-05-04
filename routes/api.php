@@ -28,4 +28,6 @@ Route::prefix('/klass')->group(function () {
 
 Route::prefix('/race')->group(function () {
     Route::get('/list', [RaceController::class, 'getList']);
+    Route::get('/static/info/{race}', [RaceController::class, 'getStaticInfo']);
+    Route::get('/choice/info/{race}', [RaceController::class, 'getChoiceInfo']);
 });
