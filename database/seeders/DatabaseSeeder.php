@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use Database\Seeders\Background\EntertainerSeeder;
+use Database\Seeders\Background\UrchinSeeder;
 use Database\Seeders\Feats\ActorFeatsSeeder;
 use Database\Seeders\Feats\DuelistFeatsSeeder;
 use Database\Seeders\Klass\BarbarianKlassSeeder;
@@ -32,5 +34,9 @@ class DatabaseSeeder extends Seeder
         // черты
         $this->call(ActorFeatsSeeder::class);
         $this->call(DuelistFeatsSeeder::class);
+
+        // происхождения
+        $this->call(EntertainerSeeder::class);
+        $this->call(UrchinSeeder::class);
     }
 }

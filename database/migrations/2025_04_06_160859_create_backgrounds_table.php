@@ -17,6 +17,8 @@ return new class extends Migration {
             $table->string('manual')->default('https://dnd.su/backgrounds/');
             $table->string('source')->default("Player`s handbook");
             $table->json('equipment'); // массив вариантов доступного снаряжения на старте
+            $table->string('skill_title')->nullable(); // заголовок умения
+            $table->text('skill_description')->nullable(); // текст умения
         });
 
         // связь с владением
