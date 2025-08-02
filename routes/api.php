@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BackgroundController;
 use App\Http\Controllers\KlassController;
 use App\Http\Controllers\LvlController;
 use App\Http\Controllers\RaceController;
@@ -40,6 +41,11 @@ Route::prefix('/skill')->group(function () {
 });
 Route::prefix('/spell')->group(function () {
     Route::post('/info', [SpellController::class, 'getInfo']);
+});
+Route::prefix('/background')->group(function () {
+    Route::get('/list', [BackgroundController::class, 'getList']);
+    Route::get('/static/info/{background}', [BackgroundController::class, 'getStaticInfo']);
+    Route::get('/choice/info/{background}', [BackgroundController::class, 'getChoiceInfo']);
 });
 
 Route::get('/lvl/info/', [LvlController::class, 'info']);
