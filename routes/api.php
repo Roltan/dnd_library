@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\KlassController;
+use App\Http\Controllers\LvlController;
 use App\Http\Controllers\RaceController;
 use App\Http\Controllers\SkillController;
 use App\Http\Controllers\SpellController;
@@ -40,3 +41,5 @@ Route::prefix('/skill')->group(function () {
 Route::prefix('/spell')->group(function () {
     Route::post('/info', [SpellController::class, 'getInfo']);
 });
+
+Route::get('/lvl/info/', [LvlController::class, 'info']);
