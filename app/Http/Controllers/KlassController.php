@@ -30,7 +30,11 @@ class KlassController extends Controller
             ->get()
             ->pluck('name');
 
-        return response(['status' => true, 'subKlasses' => $subKlass]);
+        return response([
+            'status' => true,
+            'lvlSubKlass' => $klass->sub_klass_lvl,
+            'subKlasses' => $subKlass
+        ]);
     }
 
     public function getStaticInfo($klass): Response
